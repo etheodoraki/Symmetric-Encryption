@@ -1,11 +1,10 @@
-# Symmetric-Encryption
-					﻿ACE 414 Security of Systems and Services
-							Assignment 2
+# ﻿ACE414 Security of Systems and Services
+Assignment 2
 
-						Theodoraki Emmanouela 
+Theodoraki Emmanouela 
 
 Implementation of AES cryptographuc algorithm in ECB mode with both 128, 256 bit modes, using OpenSSL toolkit in C.
-							Tool Usage:
+## Tool Usage:
 
 command:	./assign_2 -i in_file -o out_file -p password -b bits [-d | -e | -s | -v]
 
@@ -21,7 +20,7 @@ Options:
 -h This help message
 
 
-              A. Key Derivation Function
+## A. Key Derivation Function
 First, the main function provides the password and the bits mode obtained by the 
 user on build and declares the key and key_length. The function keygen(password, 
 key, key_len, iv, bit_mode) generates a key based on the given password with the 
@@ -29,7 +28,7 @@ help of EVP_BytesToKey() function after setting a cipher for both cases of
 aes-128-ecb and aes-256-ecb and  the digest method is set to SHA1. The derived 
 key is printed at the end in hex.
 
-              B. Data Encryption
+## B. Data Encryption
 Input file is read and stored as “plaintext” buffer through the readFromFile 
 function. The function encrypt() takes the plaintext, encrypts it with the key 
 derived at Task A for aes-128-ecb and aes-256-ecb  mode and stores it to the 
@@ -43,7 +42,7 @@ EVP_CIPHER_CTX_free()
 
 The encrypted message (ciphertext) is stored to the output file through the function writeToFile().
 
-              C. Data Decryption
+## C. Data Decryption
 Here the implementaion of Task B is reversed. We give an encrypted message 
 (ciphertext) as input file in order to decrypt it, giving the initial message 
 (plaintext) and store it to an output file. Functions of EVP API used:
@@ -53,7 +52,7 @@ EVP_DecryptInit_ex()
 EVP_DecryptUpdate()
 EVP_DecryptFinal_ex()
 EVP_CIPHER_CTX_free()
-              D. Data Signing (CMAC)
+## D. Data Signing (CMAC)
 At the option of signing, input file is read for encryption and saved as 
 plaintext, while the encrypted data are saved as ciphertext. Then a CMAC is 
 generated through the function gen_cmac() using the functions:
@@ -66,7 +65,7 @@ CMAC_CTX_free(ctx).
 Continuing, the generated CMAC and the ciphertext concatenate through the 
 function concat_CMAC_cipher and the result is stored to the output file.
        
-              E. Data Verification (CMAC)
+## E. Data Verification (CMAC)
 In the verification stage, the input file has the concatenated CMAC and cipher 
 provided by the signing. So, the input splits to obtain the ciphertext and CMAC 
 separately. Since we have the ciphertext, we can now decrypt it using the 
@@ -76,7 +75,7 @@ separation of the concatenated input. If the two CMACs match, the verification
 has succeeded and the plaintext can be stored to the output file. The match is 
 checked through the function strcmp().
               
-              F. Using the tool
+## F. Using the tool
 1. Encryption of file “encryptme_256.txt” using the password: TUC2014030238 and 
 output file name “decryptme_256.txt”.
 
