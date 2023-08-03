@@ -1,9 +1,11 @@
 # ﻿ACE414 Security of Systems and Services
+
 Assignment 2
 
 Theodoraki Emmanouela 
 
-Implementation of AES cryptographuc algorithm in ECB mode with both 128, 256 bit modes, using OpenSSL toolkit in C.
+### Implementation of AES cryptographuc algorithm in ECB mode with both 128, 256 bit modes, using OpenSSL toolkit in C.
+
 ## Tool Usage:
 
 command:	./assign_2 -i in_file -o out_file -p password -b bits [-d | -e | -s | -v]
